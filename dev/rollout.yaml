@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-demo-dev
+  namespace: rollouts-demo
+spec:
+  replicas: 2
+  strategy:
+    canary:
+      canaryService: rollouts-demo-dev-canary-service # our created canary service
+      stableService: rollouts-demo-dev-stable-service # our created stable service
+      dynamicStableScale: true # dynamically scale down the old versions
+      trafficRouting:
+        plugins:
+          argoproj-labs/gatewayAPI:
+            httpRoute: rollouts-demo-dev-https-route # our created httproute
+            namespace: rollouts-demo
+      steps:
+      # 0) Increase the ratio of canary ReplicaSet to 50%
+      - setWeight: 50
+      # 1) Pause 1m after half rollout
+      - pause:
+          duration: 1m
+      # 2) Increase the ratio of canary ReplicaSet to 100%
+      - setWeight: 100
+      # 3) Pause for 1m after full scale up
+      - pause:
+          duration: 1m
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollouts-demo-dev
+  template:
+    metadata:
+      labels:
+        app: rollouts-demo-dev
+    spec:
+      containers:
+        - name: rollouts-demo
+          image: argoproj/rollouts-demo:yellow
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              memory: 32Mi
+              cpu: 5m
