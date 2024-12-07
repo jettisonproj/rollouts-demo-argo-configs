@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: integration-test
+  namespace: rollouts-demo
+spec:
+  args:
+  - name: service-name
+  metrics:
+  - name: integration-test
+    provider:
+      job:
+        spec:
+          backoffLimit: 1
+          template:
+            spec:
+              containers:
+              - name: integration-test
+                image: docker/whalesay
+                command: [cowsay]
+                args: ["Running integration tests for {{args.service-name}}"]
+              restartPolicy: Never
