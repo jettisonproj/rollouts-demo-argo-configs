@@ -17,7 +17,7 @@ spec:
             spec:
               containers:
               - name: integration-test
-                image: docker/whalesay
-                command: [cowsay]
+                image: busybox
+                command: [echo]
                 args: ["Running integration tests for {{args.service-name}}"]
               restartPolicy: Never
