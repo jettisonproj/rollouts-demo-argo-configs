@@ -5,7 +5,7 @@ metadata:
   namespace: rollouts-demo
   labels:
     app.kubernetes.io/instance: rollouts-demo-staging
-    app.kubernetes.io/version: b09edbdadfb05dcc91a551a2ff9838688bafa046
+    app.kubernetes.io/version: 759e986028704e2973f535229c3be25fa53542bd
 spec:
   replicas: 2
   strategy:
@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo
-          image: osoriano/rollouts-demo:b09edbdadfb05dcc91a551a2ff9838688bafa046
+          image: osoriano/rollouts-demo:759e986028704e2973f535229c3be25fa53542bd
           ports:
             - name: http
               containerPort: 8080
