@@ -5,7 +5,7 @@ metadata:
   namespace: rollouts-demo
   labels:
     app.kubernetes.io/instance: rollouts-demo-dev
-    app.kubernetes.io/version: 759e986028704e2973f535229c3be25fa53542bd
+    app.kubernetes.io/version: 6b4802bda77eb0eba1b04905380070f09d795f8a
 spec:
   replicas: 2
   strategy:
