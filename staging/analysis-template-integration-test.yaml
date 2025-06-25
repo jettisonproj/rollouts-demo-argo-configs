@@ -17,7 +17,8 @@ spec:
             spec:
               containers:
               - name: integration-test
-                image: busybox
-                command: [echo]
-                args: ["Running integration tests for {{args.service-name}}"]
+                image: ghcr.io/osoriano/rollouts-demo-integration-test:0927e8a2dd234165d5499cf74dcbf3faa15823df
+                args:
+                - "./integration-test.sh"
+                - "http://{{args.service-name}}"
               restartPolicy: Never
