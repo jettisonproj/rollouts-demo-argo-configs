@@ -17,7 +17,7 @@ spec:
             spec:
               containers:
               - name: integration-test
-                image: ghcr.io/osoriano/rollouts-demo-integration-test:f14083a6c08bafb9e0dba2a386c6fccc05953748
+                image: ghcr.io/osoriano/rollouts-demo-integration-test:c7f905b0717bad48db757b9c9843e36eee116324
                 args:
                 - "./integration-test.sh"
                 - "http://{{args.service-name}}"
