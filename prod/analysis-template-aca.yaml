@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
   name: success-rate
-  namespace: rollouts-demo
+  namespace: jettisonproj
 spec:
   args:
   - name: service-name
