@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: rollouts-demo-prod
-  namespace: rollouts-demo
+  namespace: jettisonproj
   labels:
     app.kubernetes.io/instance: rollouts-demo-prod
     app.kubernetes.io/version: 2c0b77df09afaa0686f05a18bd51a743cce61b95
@@ -25,7 +25,7 @@ spec:
         plugins:
           argoproj-labs/gatewayAPI:
             httpRoute: rollouts-demo-prod-https-route # our created httproute
-            namespace: rollouts-demo
+            namespace: jettisonproj
       steps:
       # 0) Set canary scale to 20% of spec.replicas without changing traffic weight
       # (supported only with trafficRouting)
@@ -70,7 +70,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo
-          image: ghcr.io/osoriano/rollouts-demo:2c0b77df09afaa0686f05a18bd51a743cce61b95
+          image: ghcr.io/jettisonproj/rollouts-demo:2c0b77df09afaa0686f05a18bd51a743cce61b95
           ports:
             - name: http
               containerPort: 8080

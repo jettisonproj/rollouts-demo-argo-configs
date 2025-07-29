@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
   name: integration-test
-  namespace: rollouts-demo
+  namespace: jettisonproj
 spec:
   args:
   - name: service-name
@@ -17,7 +17,7 @@ spec:
             spec:
               containers:
               - name: integration-test
-                image: ghcr.io/osoriano/rollouts-demo-integration-test:2c0b77df09afaa0686f05a18bd51a743cce61b95
+                image: ghcr.io/osoriano/jettisonproj-integration-test:2c0b77df09afaa0686f05a18bd51a743cce61b95
                 args:
                 - "./integration-test.sh"
                 - "http://{{args.service-name}}"
