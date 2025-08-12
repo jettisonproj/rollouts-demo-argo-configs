@@ -17,7 +17,7 @@ spec:
             spec:
               containers:
               - name: integration-test
-                image: ghcr.io/jettisonproj/rollouts-demo-integration-test:660835a1d90a2e332cdb9cd8c878bf87a909fa25
+                image: ghcr.io/jettisonproj/rollouts-demo-integration-test:64c663982989986216ae328c563e58f87cfda83e
                 args:
                 - "./integration-test.sh"
                 - "http://{{args.service-name}}"
