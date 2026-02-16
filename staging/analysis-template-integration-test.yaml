@@ -3,6 +3,8 @@ kind: AnalysisTemplate
 metadata:
   name: integration-test
   namespace: jettisonproj
+  labels:
+    backstage.io/kubernetes-id: rollouts-demo-staging
 spec:
   args:
   - name: service-name

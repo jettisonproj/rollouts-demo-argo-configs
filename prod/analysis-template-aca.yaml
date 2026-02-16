@@ -3,6 +3,8 @@ kind: AnalysisTemplate
 metadata:
   name: success-rate
   namespace: jettisonproj
+  labels:
+    backstage.io/kubernetes-id: rollouts-demo-prod
 spec:
   args:
   - name: service-name
