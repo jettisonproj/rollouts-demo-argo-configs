@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: rollouts-demo-prod-stable-service
   namespace: jettisonproj
-  labels:
-    backstage.io/kubernetes-id: rollouts-demo-prod
 spec:
   ports:
     - port: 80

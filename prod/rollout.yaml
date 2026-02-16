@@ -6,7 +6,6 @@ metadata:
   labels:
     app.kubernetes.io/instance: rollouts-demo-prod
     app.kubernetes.io/version: 0d4a458f851aff2a735962cf8d02751c98371fa8
-    backstage.io/kubernetes-id: rollouts-demo-prod
 spec:
   replicas: 10
   strategy:
@@ -68,7 +67,6 @@ spec:
     metadata:
       labels:
         app: rollouts-demo-prod
-        backstage.io/kubernetes-id: rollouts-demo-prod
     spec:
       containers:
         - name: rollouts-demo
