@@ -1,0 +1,20 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  namespace: jettisonproj
+  name: rollouts-demo-prod-https-route
+spec:
+  parentRefs:
+  - name: default-gateway
+    namespace: default
+    sectionName: rollouts-demo-osoriano-gw
+  hostnames:
+  - rollouts-demo.osoriano.com
+  rules:
+  - backendRefs:
+    - name: rollouts-demo-prod-stable-service
+      kind: Service
+      port: 80
+    - name: rollouts-demo-prod-canary-service
+      kind: Service
+      port: 80

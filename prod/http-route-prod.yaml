@@ -1,0 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  namespace: jettisonproj
+  name: rollouts-demo-prod-http-route
+spec:
+  parentRefs:
+  - name: default-gateway
+    namespace: default
+    sectionName: http-osoriano-gw
+  hostnames:
+  - rollouts-demo.osoriano.com
+  rules:
+  - filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
