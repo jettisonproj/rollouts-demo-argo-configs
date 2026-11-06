@@ -4,7 +4,7 @@ metadata:
   name: integration-test
   namespace: jettisonproj
   labels:
-    app.kubernetes.io/version: 85c7afa3c61e75bf9d76ba305d82ce287b12741b
+    app.kubernetes.io/version: 255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
 spec:
   args:
   - name: service-name
@@ -20,13 +20,13 @@ spec:
             metadata:
               labels:
                 app: integration-test
-                app.kubernetes.io/version: 85c7afa3c61e75bf9d76ba305d82ce287b12741b
+                app.kubernetes.io/version: 255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
                 app-under-test: "{{args.app-under-test}}"
                 jettison-app: "{{args.app-under-test}}"
             spec:
               containers:
               - name: integration-test
-                image: ghcr.io/jettisonproj/rollouts-demo-integration-test:85c7afa3c61e75bf9d76ba305d82ce287b12741b
+                image: ghcr.io/jettisonproj/rollouts-demo-integration-test:255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
                 args:
                 - "./integration-test.sh"
                 - "http://{{args.service-name}}"
