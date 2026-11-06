@@ -35,10 +35,12 @@ spec:
   selector:
     matchLabels:
       app: rollouts-demo-dev
+      jettison-app: rollouts-demo-dev
   template:
     metadata:
       labels:
         app: rollouts-demo-dev
+        jettison-app: rollouts-demo-dev
     spec:
       containers:
         - name: rollouts-demo
