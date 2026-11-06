@@ -41,6 +41,7 @@ spec:
       labels:
         app: rollouts-demo-dev
         jettison-app: rollouts-demo-dev
+        app.kubernetes.io/version: 255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
     spec:
       containers:
         - name: rollouts-demo
