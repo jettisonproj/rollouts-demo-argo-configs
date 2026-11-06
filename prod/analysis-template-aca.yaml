@@ -3,6 +3,8 @@ kind: AnalysisTemplate
 metadata:
   name: success-rate
   namespace: jettisonproj
+  labels:
+    app.kubernetes.io/version: 85c7afa3c61e75bf9d76ba305d82ce287b12741b
 spec:
   args:
   - name: service-name
