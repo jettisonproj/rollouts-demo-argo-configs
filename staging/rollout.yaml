@@ -5,7 +5,7 @@ metadata:
   namespace: jettisonproj
   labels:
     app.kubernetes.io/instance: rollouts-demo-staging
-    app.kubernetes.io/version: 255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
+    app.kubernetes.io/version: 7c4561aab36d23165a20e91a55f2f075c49f6686
 spec:
   replicas: 2
   strategy:
@@ -50,11 +50,11 @@ spec:
       labels:
         app: rollouts-demo-staging
         jettison-app: rollouts-demo-staging
-        app.kubernetes.io/version: 255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
+        app.kubernetes.io/version: 7c4561aab36d23165a20e91a55f2f075c49f6686
     spec:
       containers:
         - name: rollouts-demo
-          image: ghcr.io/jettisonproj/rollouts-demo:255d685ce0a1216c6b89c0e30dce6c7959a9b9a9
+          image: ghcr.io/jettisonproj/rollouts-demo:7c4561aab36d23165a20e91a55f2f075c49f6686
           ports:
             - name: http
               containerPort: 8080
